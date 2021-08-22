@@ -1,2 +1,1 @@
-# Buat-homepage
-Tugas Membuat Homepage
+[2020-8-22] Tahap Membuat List Siswa
