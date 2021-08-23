@@ -1,6 +1,6 @@
 <?php 
     require 'fungsi.php' ;
-    $siswa = query("SELECT * FROM tbl_siswa");
+    $siswa = query_siswa("SELECT * FROM tbl_siswa");
 
 
  ?>
@@ -13,7 +13,7 @@
     <title>Halaman Admin</title>
      <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+      <a href="dashboard.php" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
         <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
         <span class="fs-4">Halaman Admin</span>
       </a>
@@ -32,10 +32,10 @@
          
     <br>
     <br>
-    <table class = "tabel" align="center" border="1" cellpadding="10" cellspacing="0">
+    <table class = "tabel" align="center" width="1000px" border="1" cellpadding="10" cellspacing="0">
     <tr>
         <td>
-            <a href = "create.php"><button class="btn btn-primary me-md-2" type="button">Tambah Data Siswa</button></a>
+            <a href = "create_siswa.php"><button class="btn btn-primary me-md-2" type="button">Tambah Data Siswa</button></a>
         </td>
     </tr>
         <tr>
@@ -48,8 +48,8 @@
     <?php foreach ( $siswa as $show ):  ?>
         <tr>
             <td>
-                <a href="">Ubah</a> |
-                <a href="delete.php?id=<?= $show ["nis"]; ?>" onclick="return confirm('yakin?');"><button type="button" class="btn btn-danger">Hapus</button></a>
+                <a href="update_siswa.php?id=<?= $show ["nis"]; ?>"><button type="button" class="btn btn-success">Ubah</button></a> |
+                <a href="delete_siswa.php?id=<?= $show ["nis"]; ?>" onclick="return confirm('Yakin Menghapus Data ?');"><button type="button" class="btn btn-danger">Hapus</button></a>
             </td>
             <td> <?= $show ["nis"] ?> </td>
             <td> <?= $show ["nama_siswa"] ?> </td>

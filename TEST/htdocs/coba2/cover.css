@@ -1,5 +1,18 @@
 * {
+    
 }
+
+.tabel{
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%, -50%);
+    border: 1 px black;
+    color: black;
+    text-decoration: none;
+
+
 }
 body{
     background-color: white;

@@ -7,7 +7,7 @@ $link = mysqli_connect (
         "",
         "db_sekolah");
 
-function query ($query){
+function query_siswa ($query){
         
         global $link;
 
@@ -19,7 +19,7 @@ function query ($query){
         return $rows;
 }
 
-function create ($post){
+function create_siswa ($post){
 
         global $link;
 
@@ -39,12 +39,35 @@ function create ($post){
 
 }
 
-function delete ($id) {
+function delete_siswa ($id) {
         global $link;
 
         mysqli_query ($link, "DELETE FROM tbl_siswa WHERE nis=$id");
 
         return mysqli_affected_rows($link);
+}
+
+function update_siswa ($data_siswa) {
+        global $link;
+
+        $id = $data_siswa["id"];
+        $nis = htmlspecialchars($data_siswa["nis"]);
+        $nama = htmlspecialchars($data_siswa["nama_siswa"]);
+        $tgllhr = htmlspecialchars($data_siswa["tanggal_lahir"]);
+        $jnsk = htmlspecialchars($data_siswa["jenis_kelamin"]);
+
+
+        $query = "UPDATE tbl_siswa SET 
+                nis = '$nis',
+                nama_siswa = '$nama',
+                tanggal_lahir = '$tgllhr',
+                jenis_kelamin = '$jnsk'
+                WHERE id = $id
+                ";
+        mysqli_query($link, $query);
+
+        return mysqli_affected_rows ($link);
+
 }
 
 
